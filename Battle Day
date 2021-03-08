@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void battle (int Y, char *x){
+
+	if (Y % 3 == 0) {
+		x = "A & B";
+	}
+	else if (Y % 3 == 1) {
+		x = "B & C";
+	}
+	else {
+		x = "C & A";
+	}
+}
+
+int main(void) {
+	// your code goes here
+	int Y;
+	char *x = malloc(sizeof(char));
+	
+	if (x == NULL) {
+		printf("Not enough memory./n");
+		return 0;
+	}
+	
+	printf("Battle Day: ");
+	scanf("%d", &Y);
+	
+	battle(Y, &x);
+	
+	printf("\nBattle Day %d is between %s", Y, x);
+	
+	free(x);
+	return 0;
+}
